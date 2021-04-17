@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>JEE Mains Marks Calculator</title>
 	<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="quick and accurate JEE Mains Marks Calculator used for calculating JEE Mains score and find mistakes for JEE Mains 2020 ">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description"
+		content="quick and accurate JEE Mains Marks Calculator used for calculating JEE Mains score and find mistakes for JEE Mains 2020 ">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script src="https://kit.fontawesome.com/fe4ce24d39.js" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 </head>
+
 <body>
-	<div style = "text-align: center;">
-		<p class="h1" style = "padding:0.1em;">JEE Mains Marks Calculator</p>
+	<div style="text-align: center;">
+		<p class="h1" style="padding:0.1em;">JEE Mains Marks Calculator</p>
 	</div>
-	<div style = "text-align: center;">
+	<!-- <div style = "text-align: center;">
 		<p class="h3" style = "padding:0.1em;color: red;">Login Successful</p>
-	</div>
-	<p class = "h5" style = "padding-bottom:0.5em;padding-left:0.5em;padding-right:0.5em;">JEE Mains response key is out, everybody is excited to know their marks and why not after dedicating one / two years of our life, the excitement is obvious but NTA has made calculating marks, a tedious and boring task.<br>
-		We provide such aspirants a quick and accurate solution to this problem by <b><i><u>calculating their score and pointing out their mistakes.</u></i></b></p>
+	</div> -->
+	<p class="h5" style="padding-bottom:0.5em;padding-left:0.5em;padding-right:0.5em;">JEE Mains response key is out,
+		everybody is excited to know their marks and why not after dedicating one / two years of our life, the
+		excitement is obvious but NTA has made calculating marks, a tedious and boring task.<br>
+		We provide such aspirants a quick and accurate solution to this problem by <b><i><u>calculating their score and
+					pointing out their mistakes.</u></i></b></p>
 	<section id="form" style="display: flex; justify-content: center;">
-		<form method = 'post' enctype="multipart/form-data" style="text-align: center;border:1px solid black;border-radius:5px;padding-left:20px;padding-right:20px;display:inline-block;">
+		<form method='post' enctype="multipart/form-data"
+			style="text-align: center;border:1px solid black;border-radius:5px;padding-left:20px;padding-right:20px;display:inline-block;">
 			{% csrf_token %}
 			<br>
 			<div class="form-group">
-				<p class = "h4">Upload your response key in pdf format</p>
+				<p class="h4">Upload your response key in pdf format</p>
 				<br>
 				<div class="custom-file">
-					<input type="file" class="custom-file-input" id="inputGroupFile02" name = "document">
+					<input type="file" class="custom-file-input" id="inputGroupFile02" name="document">
 					<label class="custom-file-label" for="inputGroupFile02">Choose file</label>
 				</div>
 				<br>
@@ -38,17 +52,20 @@
 				</div>
 			</div>
 			<script>
-				$('#inputGroupFile02').on('change',function(){
+				$('#inputGroupFile02').on('change', function () {
 					var fileName = $(this).val().replace('C:\\fakepath\\', " ");
 					$(this).next('.custom-file-label').html(fileName);
 				})
 			</script>
 			<div>
-				<a href="#"><p class = "h6"><u>don't know how to get the pdf?</u></p></a>
+				<a href="#">
+					<p class="h6"><u>don't know how to get the pdf?</u></p>
+				</a>
 			</div>
-			<p class = "h6">We do not save your response pdf or any other data in it.</p>
+			<p class="h6">We do not save your response pdf or any other data in it.</p>
+			<p class="h6">Currently the database contains only the answers for jee mains january 2020.</p>
 		</form>
-	</section>	
+	</section>
 	<br>
 	{% if messages %}
 	<div class="alert alert-danger" role="alert">
@@ -60,37 +77,38 @@
 	{% endif %}
 	{% if marks %}
 	<br>
-	<p class = "h1" align="center">{{firstName}}, Your Score is {{marks}} ( {{positive}} - {{negative}} )</p>
+	<p class="h1" align="center">Your Score is {{marks}} ( {{positive}} - {{negative}} )</p>
 	<br>
 
 	{% if listfortable %}
 	<div>
-		<p class = "h4" align="center">The table provided is specifically made on basics of your response key(pdf) and contain all those questions
+		<p class="h4" align="center">The table provided is specifically made on basics of your response key(pdf) and
+			contain all those questions
 			which you attempted incorrectly</p>
 		{% for list in listfortable %}
 		{% if forloop.counter == 1%}
 		<br>
-		<h2 align = "center">Physics</h2>
+		<h2 align="center">Physics</h2>
 		{% endif %}
 		{% if forloop.counter == 2%}
-		<h2 align = "center">Chemistry</h2>
+		<h2 align="center">Chemistry</h2>
 		{% endif %}
 		{% if forloop.counter == 3%}
-		<h2 align = "center">Mathematics</h2>
+		<h2 align="center">Mathematics</h2>
 		{% endif %}
 		<br>
 		<table class="table table-bordered table-striped">
-	  	<tr>
-			<th class="text-center h4">Question No.</th>
-			<th class="text-center h4">Your Answer</th>
-			<th class="text-center h4">Correct Answer</th>
-	 	 </tr>
+			<tr>
+				<th class="text-center h4">Question No.</th>
+				<th class="text-center h4">Your Answer</th>
+				<th class="text-center h4">Correct Answer</th>
+			</tr>
 			{% for element in list %}
-	  	<tr>
-			{% for x in element %}
-			<td class = "h5" align = "center">{{ x }}</td>
-			{% endfor %}
-	  	</tr>
+			<tr>
+				{% for x in element %}
+				<td class="h5" align="center">{{ x }}</td>
+				{% endfor %}
+			</tr>
 			{% endfor %}
 		</table>
 		<br>
@@ -101,13 +119,19 @@
 	<footer>
 		<div style="text-align:center;">
 			<p class="h4">Like it? Share it!</p>
-			<a href="https://api.whatsapp.com/send?text=Calculate%20your%20JEE%20Mains%20marks%20using%20https://www.engineershope.com" target="_blank"><i style="margin-right: 1em;padding-left:0.1em;padding-right:0.1em; background-color: #25d366; color: white;" class="fab fa-whatsapp fa-3x"></i></a>
-			<a href="http://www.facebook.com/sharer.php?u=https://www.engineershope.com" target="_blank"><i class="fab fa-facebook fa-3x" style = "margin-right: 1em; color: rgb(59, 91, 152);"></i></a>
-			<a href="https://twitter.com/share?url=https://www.engineershope.com&amp;text=JEE%20Mains%20Marks%20Calculator&amp;hashtags=jeemainsmarkscalculator" target="_blank"><i class="fab fa-twitter fa-3x" style = "color: #1DA1F2;"></i></a>
-			<p class="h6" style = "padding-top:1em">Created by Vishal Agrawal</p>
+			<a href="https://api.whatsapp.com/send?text=Calculate%20your%20JEE%20Mains%20marks%20using%20https://www.engineershope.com"
+				target="_blank"><i
+					style="margin-right: 1em;padding-left:0.1em;padding-right:0.1em; background-color: #25d366; color: white;"
+					class="fab fa-whatsapp fa-3x"></i></a>
+			<a href="http://www.facebook.com/sharer.php?u=https://www.engineershope.com" target="_blank"><i
+					class="fab fa-facebook fa-3x" style="margin-right: 1em; color: rgb(59, 91, 152);"></i></a>
+			<a href="https://twitter.com/share?url=https://www.engineershope.com&amp;text=JEE%20Mains%20Marks%20Calculator&amp;hashtags=jeemainsmarkscalculator"
+				target="_blank"><i class="fab fa-twitter fa-3x" style="color: #1DA1F2;"></i></a>
+			<p class="h6" style="padding-top:1em">Created by Vishal Agrawal</p>
 			<p class="h6">Contact: support@engineershope.com</p>
 		</div>
 		<br>
 	</footer>
 </body>
+
 </html>

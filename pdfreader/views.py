@@ -13,9 +13,9 @@ import re
 # Create your views here.
 
 
-def fake_calculate(request):
-    context = upload(request)
-    return render(request, "upload2.html", context)
+# def fake_calculate(request):
+#     context = upload(request)
+#     return render(request, "upload2.html", context)
 
 
 def calculate(request):
@@ -55,22 +55,6 @@ def upload(request):
             page = doc.loadPage(0)
             text = page.getText()
             texts = text.split("\n")
-            regex_name = re.compile("^Candidate Name$")
-            next_line_name = False
-            for line in texts:
-                search_name = re.search(regex_name, line)
-                if (search_name != None):
-                    next_line_name = True
-                elif (next_line_name):
-                    name = list(line.split())
-                    if(len(name) == 2):
-                        context['firstName'] = name[0][0]+name[0][1:].lower()
-                        context['lastName'] = name[1][0]+name[1][1:].lower()
-                    if (len(name) == 3):
-                        context['firstName'] = name[0][0] + name[0][1:].lower()
-                        context['lastName'] = name[1][0] + name[1][1:].lower() + \
-                            " " + name[2][0] + name[2][1:].lower()
-                    next_line_name = False
 
             regex_type = re.compile("^Question Type : (.*)$")
             regex_q = re.compile("^Question ID : (.*)$")
